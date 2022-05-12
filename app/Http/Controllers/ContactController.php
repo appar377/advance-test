@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use PhpParser\Node\Expr\AssignOp\Concat;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -20,6 +20,16 @@ class ContactController extends Controller
     public function sendConfirm(ClientRequest $request) {
         $items = $request->all();
         unset($items['_token']);
+
+        Session::flash('topname' , $request->topname);
+        Session::flash('undername' , 
+        $request->undername);
+        Session::flash('gender' , $request->gender);
+        Session::flash('email' , $request->email);
+        Session::flash('postcode' , $request->postcode);
+        Session::flash('address' , $request->address);
+        Session::flash('building_name' , $request->building_name);
+        Session::flash('opinion' , $request->opinion);
         return view('confirm',['items'=>$items]);
     }
 

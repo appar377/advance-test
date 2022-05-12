@@ -115,12 +115,12 @@
 
     <div class="form__item__input-name form__item__input">
       <div class="name-top">
-        <input type="text" name="topname">
+        <input value="{{ session('topname') }}" type="text" name="topname">
         <small class="example__name-top example">例）山田</small>
       </div>
       
       <div class="name-bottom">
-        <input type="text" name="undername">
+        <input value="{{ session('undername') }}" type="text" name="undername">
         <small class="example__name-bottom example">例）太郎</small>
       </div>
     </div>
@@ -138,7 +138,7 @@
       <input type="radio" id="male" name="gender" value=1 checked>
       <label for="male">男性</label>
 
-      <input type="radio" id="female" name="gender" value=2>
+      <input type="radio" id="female" name="gender" value=2 {{ session('gender') == '2' ? 'checked' : '' }}>
       <label for="female">女性</label>
     </div>
   </div>
@@ -152,7 +152,7 @@
     <p class="form__item__label-email form__item__label">メールアドレス<span class="require">※</span></p>
 
     <div class="form__item__input-email form__item__input">
-      <input type="email" name="email">
+      <input value="{{ session('email') }}" type="email" name="email">
       <small class="example__email example">例）test@example.com</small>
     </div>
   </div>
@@ -168,7 +168,7 @@
     <div class="form__item__input-post form__item__input">
       <div class="add__post-icon">
         <span class="post-icon">〒</span>
-        <input id="postcode" class="postcode" onblur="ztoh(this);" type="text" name="postcode" pattern="\d{3}-?\d{4}">
+        <input value="{{ session('postcode') }}" id="postcode" class="postcode" onblur="ztoh(this);" type="text" name="postcode" pattern="\d{3}-?\d{4}" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
       </div>
       <small class="example__post example">例）123-4567</small>
     </div>
@@ -183,7 +183,7 @@
     <p class="form__item__label-address form__item__label">住所<span class="require">※</span></p>
 
     <div class="form__item__input-address form__item__input">
-      <input id="address" type="text" name="address">
+      <input value="{{ session('address') }}" id="address" type="text" name="address">
       <small class="example__address example">例）東京都渋谷区千駄ヶ谷1-2-3</small>
     </div>
   </div>
@@ -197,7 +197,7 @@
     <p class="form__item__label-building form__item__label">建物名</p>
 
     <div class="form__item__input-building form__item__input">
-      <input type="text" name="building_name">
+      <input value="{{ session('building_name') }}" type="text" name="building_name">
       <small class="example__building example">例）千駄ヶ谷マンション101</small>
     </div>
   </div>
@@ -206,7 +206,7 @@
     <p class="form__item__label-opinion form__item__label">ご意見<span class="require">※</span></p>
 
     <div class="form__item__input-opinion form__item__input">
-      <textarea name="opinion" id="" cols="50" rows="6" maxlength="120"></textarea>
+      <textarea name="opinion" id="" cols="50" rows="6" maxlength="120">{{ session('opinion') }}</textarea>
     </div>
   </div>
   @if (count($errors) > 0)

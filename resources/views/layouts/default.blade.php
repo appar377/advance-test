@@ -7,8 +7,7 @@
   <title>AdvanceTest</title>
   
   <!--　住所検索 -->
-  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script type="text/javascript" src="//jpostal.googlecode.com/svn/trunk/jquery.jpostal.js"></script>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
   </script>
 </head>
